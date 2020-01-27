@@ -3,6 +3,7 @@ import React, { Component } from 'react'; // Brings React and Component into com
 import './App.css';
 
 import Search from '../Search/Search';
+import CountryDisplay from '../CountryDisplay/CountryDisplay';
 
 // Base or root component to be rendered from ../../index.js
 class App extends Component {
@@ -14,6 +15,9 @@ class App extends Component {
                 </div>
                 <div>
                     <Search />
+                </div>
+                <div>
+                    <CountryDisplay />
                 </div>
             </>
         )

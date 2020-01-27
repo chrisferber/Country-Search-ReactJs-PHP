@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; // Brings React and Component into component
-
+import { connect } from 'react-redux';
 
 class Search extends Component {
 
@@ -13,8 +13,9 @@ class Search extends Component {
         });
     }
 
-    handleSearchSubmit = () => {
-        this.props.dispatch({ type:'SEARCH_COUNTRIES', payload: this.state })
+    handleSearchSubmit = (event) => {
+        event.preventDefault();
+        this.props.dispatch({ type:'SEARCH_COUNTRIES', payload: this.state });
     }
 
     render() {
@@ -47,4 +48,4 @@ class Search extends Component {
     }
 } // End App component
 
-export default Search;
+export default connect()(Search);
