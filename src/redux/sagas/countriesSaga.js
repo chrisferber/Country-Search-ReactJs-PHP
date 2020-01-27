@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on 'FETCH_USER_EVENTS' actions
@@ -13,7 +13,7 @@ function* fetchCountries() {
 
 
 function* countriesSaga() {
-    yield takeLatest('FETCH_COUNTRIES', fetchCountries);
+    yield takeLatest('SEARCH_COUNTRIES', fetchCountries);
 }
 
 export default countriesSaga;
