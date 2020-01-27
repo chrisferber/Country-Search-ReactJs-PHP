@@ -2,9 +2,31 @@
   "name": "country-search",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
-  }
+    "react-redux": "^7.1.3",
+    "react-scripts": "3.3.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^1.1.3"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "client": "react-scripts start",
+    "server": "nodemon --watch server server/server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

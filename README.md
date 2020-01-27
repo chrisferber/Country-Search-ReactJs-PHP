@@ -1,0 +1,1 @@
+to start server: php -c /Users/Chris/code-challenges/country-search/php.ini -S localhost:5000
