@@ -46,6 +46,6 @@ class Search extends Component {
             </>
         )
     }
-} // End App component
+} // End Search component
 
 export default connect()(Search);

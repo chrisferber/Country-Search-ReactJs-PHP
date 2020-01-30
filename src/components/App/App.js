@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; // Brings React and Component into component
+import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -16,12 +17,19 @@ class App extends Component {
                 <div>
                     <Search />
                 </div>
+                { this.props.reduxState.currentCountries.search &&
                 <div>
                     <CountryDisplay />
                 </div>
+                }
             </>
         )
     }
 } // End App component
 
-export default App;
+// Provides reduxState to component through props
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
+
+export default connect(mapStateToProps)(App)

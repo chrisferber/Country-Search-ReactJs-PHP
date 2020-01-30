@@ -10,7 +10,8 @@ function* fetchCountries(action) {
             'Content-type': 'application/x-www-form-urlencoded',
             'Access-Control-Allow-Origin': '*',
         });
-        yield console.log('searchResults for GET route in fetchCountries is', searchResults);
+        yield console.log('searchResults.data for GET route in fetchCountries is', searchResults.data);
+        yield put({ type: 'SET_COUNTRIES', payload: searchResults.data });
     } catch (error) {
         console.log('error in countriesSaga.js, fetchCountries request failed with error,', error);
     }

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import currentCountries from './currectCountriesReducer'
+import currentCountries from './currentCountriesReducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
