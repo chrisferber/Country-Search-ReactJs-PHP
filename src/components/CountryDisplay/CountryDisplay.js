@@ -48,24 +48,24 @@ class CountryDisplay extends Component {
                     <Table className={this.useStyles.table} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>Name</TableCell>
-                                <TableCell align="right">Flag</TableCell>
-                                <TableCell align="right">AlphaCode2</TableCell>
-                                <TableCell align="right">AlphaCode3</TableCell>
-                                <TableCell align="right">Population</TableCell>
-                                <TableCell align="right">Region</TableCell>
-                                <TableCell align="right">Subregion</TableCell>
-                                <TableCell align="right">Languages</TableCell>
+                                <TableCell><h2>Name</h2></TableCell>
+                                <TableCell align="right"><h2>Flag</h2></TableCell>
+                                <TableCell align="right"><h2>AlphaCode2</h2></TableCell>
+                                <TableCell align="right"><h2>AlphaCode3</h2></TableCell>
+                                <TableCell align="right"><h2>Population</h2></TableCell>
+                                <TableCell align="right"><h2>Region</h2></TableCell>
+                                <TableCell align="right"><h2>Subregion</h2></TableCell>
+                                <TableCell align="right"><h2>Languages</h2></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {/* maps through currentCountriesReducer to populate table body with search results */}
                             {this.props.reduxState.currentCountries.countries.map(country => (
-                                <TableRow key={country.alphaCode2}>
-                                    <TableCell component="th" scope="country">
+                                <TableRow key={country.alphaCode2} className="country-table-rows">
+                                    <TableCell component="th" scope="country" className="country-table-cell">
                                         {country.name}
                                     </TableCell>
-                                    <TableCell align="right">{country.flag}</TableCell>
+                                    <TableCell align="right"><img src={country.flag} width="300px"/></TableCell>
                                     <TableCell align="right">{country.alphaCode2}</TableCell>
                                     <TableCell align="right">{country.alphaCode3}</TableCell>
                                     <TableCell align="right">{country.population}</TableCell>

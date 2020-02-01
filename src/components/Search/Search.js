@@ -1,6 +1,10 @@
 import React, { Component } from 'react'; // Brings React and Component into component
 import { connect } from 'react-redux';
 
+// Material UI styling components
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 class Search extends Component {
 
     state = {
@@ -26,21 +30,18 @@ class Search extends Component {
                         onSubmit={this.handleSearchSubmit}
                     >
                         <label htmlFor='countryInput'>
-                            Search Countries:
+                            <h1>Search Countries:  </h1>
                         </label>
-                        <input
+                        <TextField
                             id='countryInput'
                             name='countryInput'
-                            placeholder='eg. USA, 3166-1, Minnesota...'
+                            placeholder='eg. USA, Argentina...'
                             type='text'
                             onChange={this.handleChangeForSearch}
                         />
-                        <input
-                            id='countrySubmitButton'
-                            name='countrySubmit'
-                            type='submit'
-                            value='Submit'
-                        />
+                        <Button type='submit' value='Submit' color='primary' variant='outlined'>
+                        Submit
+                        </Button>
                     </form>
                 </div>
             </>

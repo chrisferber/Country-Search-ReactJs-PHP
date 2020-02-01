@@ -10,10 +10,7 @@ import CountryDisplay from '../CountryDisplay/CountryDisplay';
 class App extends Component {
     render() {
         return (
-            <>
-                <div>
-                    <h1>Country Search</h1>
-                </div>
+            <div className="app-wrapper">
                 <div>
                     <Search />
                 </div>
@@ -22,7 +19,7 @@ class App extends Component {
                     <CountryDisplay />
                 </div>
                 }
-            </>
+            </div>
         )
     }
 } // End App component
