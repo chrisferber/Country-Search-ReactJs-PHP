@@ -10,7 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-// CountryDisplay component will map through search results and display them on the DOM in a table.
+// CountryDisplay component will map through search results and display them on the DOM in a MUI table.
 class CountryDisplay extends Component {
 
     state = {
@@ -60,8 +60,8 @@ class CountryDisplay extends Component {
                         </TableHead>
                         <TableBody>
                             {/* maps through currentCountriesReducer to populate table body with search results */}
-                            { this.props.reduxState.currentCountries.countries.map(country => (
-                                <TableRow>
+                            {this.props.reduxState.currentCountries.countries.map(country => (
+                                <TableRow key={country.alphaCode2}>
                                     <TableCell component="th" scope="country">
                                         {country.name}
                                     </TableCell>
@@ -71,7 +71,9 @@ class CountryDisplay extends Component {
                                     <TableCell align="right">{country.population}</TableCell>
                                     <TableCell align="right">{country.region}</TableCell>
                                     <TableCell align="right">{country.subregion}</TableCell>
-                                    <TableCell align="right">{country.languages}</TableCell>
+                                    <TableCell align="right">{country.languages.map(language => (
+                                        <p key={language}>{language},</p>
+                                    ))}</TableCell>
                                 </TableRow>
                             )
                             )}
