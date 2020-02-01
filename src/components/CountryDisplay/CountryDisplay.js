@@ -13,6 +13,21 @@ import Paper from '@material-ui/core/Paper';
 // CountryDisplay component will map through search results and display them on the DOM in a table.
 class CountryDisplay extends Component {
 
+    state = {
+        countries: '',
+    }
+
+    componentDidMount() {
+        this.parseCurrentCountriesReducer();
+    }
+
+    parseCurrentCountriesReducer = () => {
+        this.setState({
+            countries: this.props.reduxState.currentCountries,
+        });
+        console.log('in parseCurrentCountriesReducer function, this.state is:', this.state);
+    }
+
     // Material UI setup from documentation that will be used by other Material UI components to correctly format tables
     useStyles = () => {
         makeStyles({
@@ -33,8 +48,7 @@ class CountryDisplay extends Component {
                     <Table className={this.useStyles.table} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>Username</TableCell>
-                                <TableCell align="right">Name</TableCell>
+                                <TableCell>Name</TableCell>
                                 <TableCell align="right">Flag</TableCell>
                                 <TableCell align="right">AlphaCode2</TableCell>
                                 <TableCell align="right">AlphaCode3</TableCell>
@@ -46,27 +60,24 @@ class CountryDisplay extends Component {
                         </TableHead>
                         <TableBody>
                             {/* maps through currentCountriesReducer to populate table body with search results */}
-                            {/* this.props.reduxState.currentCountries.map((country) => ( */}
+                            { this.props.reduxState.currentCountries.countries.map(country => (
                                 <TableRow>
                                     <TableCell component="th" scope="country">
-                                        {this.props.reduxState.currentCountries.name}
+                                        {country.name}
                                     </TableCell>
-                                    <TableCell align="right">{this.props.reduxState.currentCountries.flag}</TableCell>
-                                    <TableCell align="right">{this.props.reduxState.currentCountries.alphaCode2}</TableCell>
-                                    <TableCell align="right">{this.props.reduxState.currentCountries.alphaCode3}</TableCell>
-                                    <TableCell align="right">{this.props.reduxState.currentCountries.population}</TableCell>
-                                    <TableCell align="right">{this.props.reduxState.currentCountries.region}</TableCell>
-                                    <TableCell align="right">{this.props.reduxState.currentCountries.subregion}</TableCell>
-                                    <TableCell align="right">{this.props.reduxState.currentCountries.languages}</TableCell>
+                                    <TableCell align="right">{country.flag}</TableCell>
+                                    <TableCell align="right">{country.alphaCode2}</TableCell>
+                                    <TableCell align="right">{country.alphaCode3}</TableCell>
+                                    <TableCell align="right">{country.population}</TableCell>
+                                    <TableCell align="right">{country.region}</TableCell>
+                                    <TableCell align="right">{country.subregion}</TableCell>
+                                    <TableCell align="right">{country.languages}</TableCell>
                                 </TableRow>
-                            
+                            )
+                            )}
                         </TableBody>
                     </Table>
                 </Paper>
-                <div>
-                    <h3>This is the props stringify</h3>
-                            <pre>{JSON.stringify(this.props.reduxState.currentCountries [null, 2])}</pre>
-                </div>
             </>
         )
     }

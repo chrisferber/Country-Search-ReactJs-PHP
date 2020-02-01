@@ -10,8 +10,18 @@ function* fetchCountries(action) {
             'Content-type': 'application/x-www-form-urlencoded',
             'Access-Control-Allow-Origin': '*',
         });
-        yield console.log('searchResults.data for GET route in fetchCountries is', searchResults.data);
-        yield put({ type: 'SET_COUNTRIES', payload: searchResults.data });
+        let countries = searchResults.data;
+
+        countries = countries.substring(1);
+        countries = countries.substring(0, countries.length - 1);
+
+        console.log('here is variable countries: ', countries);
+
+        let countriesSearch = JSON.parse(countries);
+
+        console.log('here is countriesSearch: ', countriesSearch);
+
+        yield put({ type: 'SET_COUNTRIES', payload: countriesSearch });
     } catch (error) {
         console.log('error in countriesSaga.js, fetchCountries request failed with error,', error);
     }
