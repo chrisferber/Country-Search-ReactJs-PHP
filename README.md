@@ -25,7 +25,7 @@
         - eg. php -c /Users/Chris/dev-projects/country-search/php.ini -S localhost:5000
 
 - Start the front end.
-    - npm start client
+    - npm run client
 
 - Navigate to:
     - [http://localhost:3000](http://localhost:3000)
