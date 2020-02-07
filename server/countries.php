@@ -71,7 +71,7 @@ $callapi = FALSE;  // If set to FALSE we will use SESSION info for API and not c
         $countries = $formattedCountries;                   // And finally, set countries variable for searching
     }
 
-    // Now set $search to the search input that the front end passed us ($_GET gets input passed  by front end)
+    // Now set $search to the search input that the front end passed us (file_get_contents gets input passed  by front end)
 
     error_log("Input passed from front end:", 0);
 
